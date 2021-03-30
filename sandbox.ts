@@ -1,9 +1,11 @@
-const character = "Ohmz";
+let character: string = "mario";
+let age: number = 30;
+let isBlackBelt: boolean = false;
 
-console.log(character);
+character = "20";
 
-const inputs = document.querySelectorAll("input");
+const circ: any = (diameter: number) => {
+  return diameter * Math.PI;
+};
 
-inputs.forEach((input) => {
-  console.log(input);
-});
+console.log(circ(4));
