@@ -1,9 +1,16 @@
 "use strict";
-var character = "mario";
-var age = 30;
-var isBlackBelt = false;
-character = "20";
-var circ = function (diameter) {
-    return diameter * Math.PI;
+var greet;
+greet = function () {
+    console.log("hello, again");
 };
-console.log(circ(4));
+var add = function (a, b, c) {
+    if (c === void 0) { c = 10; }
+    console.log(a + b);
+    console.log(c);
+};
+console.log(add(5, 10, 20));
+var minus = function (a, b) {
+    return a + b;
+};
+var result = minus("10", "7");
+result = "10";

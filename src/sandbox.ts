@@ -1,11 +1,19 @@
-let character: string = "mario";
-let age: number = 30;
-let isBlackBelt: boolean = false;
+let greet: Function;
 
-character = "20";
-
-const circ: any = (diameter: number) => {
-  return diameter * Math.PI;
+greet = () => {
+  console.log("hello, again");
 };
 
-console.log(circ(4));
+const add = (a: number, b: number, c: number | string = 10): void => {
+  console.log(a + b);
+  console.log(c);
+};
+
+console.log(add(5, 10, 20));
+
+const minus = (a: string, b: string): string => {
+  return a + b;
+};
+
+let result = minus("10", "7");
+result = "10";
