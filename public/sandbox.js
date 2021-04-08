@@ -1,16 +1,10 @@
 "use strict";
-var greet;
-greet = function () {
-    console.log("hello, again");
+var logDetail = function (uid, item) {
+    console.log(item + " has uid of " + uid);
 };
-var add = function (a, b, c) {
-    if (c === void 0) { c = 10; }
-    console.log(a + b);
-    console.log(c);
+var greet = function (user) {
+    console.log(user.name + " say hello " + user.uid);
 };
-console.log(add(5, 10, 20));
-var minus = function (a, b) {
-    return a + b;
+var greetAgain = function (user) {
+    console.log(user.name + " );\n};\n");
 };
-var result = minus("10", "7");
-result = "10";

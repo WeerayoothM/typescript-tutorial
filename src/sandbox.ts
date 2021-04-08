@@ -1,19 +1,14 @@
-let greet: Function;
+type StringOrNum = string | number;
+type objWithName = { name: string; uid: StringOrNum };
 
-greet = () => {
-  console.log("hello, again");
+const logDetail = (uid: StringOrNum, item: string) => {
+  console.log(`${item} has uid of ${uid}`);
 };
 
-const add = (a: number, b: number, c: number | string = 10): void => {
-  console.log(a + b);
-  console.log(c);
+const greet = (user: objWithName) => {
+  console.log(`${user.name} say hello ${user.uid}`);
 };
 
-console.log(add(5, 10, 20));
-
-const minus = (a: string, b: string): string => {
-  return a + b;
+const greetAgain = (user: objWithName) => {
+  console.log(`${user.name} );
 };
-
-let result = minus("10", "7");
-result = "10";
