@@ -1,10 +1,17 @@
 "use strict";
-var logDetail = function (uid, item) {
-    console.log(item + " has uid of " + uid);
+// let greet : Function;
+var greet;
+// example 1
+greet = function (name, greeting) {
+    console.log(name + " says " + greeting);
 };
-var greet = function (user) {
-    console.log(user.name + " say hello " + user.uid);
-};
-var greetAgain = function (user) {
-    console.log(user.name + " );\n};\n");
+//example 2
+var calc;
+calc = function (numOne, numTwo, action) {
+    if (action === "add") {
+        return numOne + numTwo;
+    }
+    else {
+        return numOne - numTwo;
+    }
 };
