@@ -30,8 +30,9 @@ let invoices: Invoice[] = [];
 invoices.push(invoiceOne);
 invoices.push(invoiceTwo);
 
-invoiceOne.client = "Ohm";
-console.log(invoices);
+invoices.forEach((inv) => {
+  console.log(inv.client, inv.details, inv.format());
+});
 
 const form = document.querySelector(".new-item-form") as HTMLFormElement;
 

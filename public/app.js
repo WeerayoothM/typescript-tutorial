@@ -21,8 +21,9 @@ var invoiceTwo = new Invoice("logi", "work on the logi website", 300);
 var invoices = [];
 invoices.push(invoiceOne);
 invoices.push(invoiceTwo);
-invoiceOne.client = "Ohm";
-console.log(invoices);
+invoices.forEach(function (inv) {
+    console.log(inv.client, inv.details, inv.format());
+});
 var form = document.querySelector(".new-item-form");
 //input
 var type = document.querySelector("#type");
