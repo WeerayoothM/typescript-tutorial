@@ -6,10 +6,21 @@
 // console.log(anchor.href);
 // const form = document.querySelector("form");
 var Invoice = /** @class */ (function () {
-    function Invoice(c, d, a) {
-        this.client = c;
-        this.details = d;
-        this.amount = a;
+    /*
+    readonly client: string; // can access but can't change value of this prop
+    private details: string; // private : not access this property outside class
+    public amount: number; // can access this property outside class
+  
+    constructor(c: string, d: string, a: number) {
+      this.client = c;
+      this.details = d;
+      this.amount = a;
+    }*/
+    // shorthand for define property
+    function Invoice(client, details, amount) {
+        this.client = client;
+        this.details = details;
+        this.amount = amount;
     }
     Invoice.prototype.format = function () {
         return this.client + " owes &" + this.amount + " for " + this.details;
@@ -22,7 +33,7 @@ var invoices = [];
 invoices.push(invoiceOne);
 invoices.push(invoiceTwo);
 invoices.forEach(function (inv) {
-    console.log(inv.client, inv.details, inv.format());
+    console.log(inv.client, inv.format());
 });
 var form = document.querySelector(".new-item-form");
 //input
