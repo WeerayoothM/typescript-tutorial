@@ -1,5 +1,8 @@
+import { HasFormatter } from './../Interfaces/HasFormatter.js';
+
+
 // classes
-export class Invoice {
+export class Invoice implements HasFormatter {
     /* 
     readonly client: string; // can access but can't change value of this prop
     private details: string; // private : not access this property outside class
@@ -24,3 +27,5 @@ export class Invoice {
       return `${this.client} owes &${this.amount} for ${this.details}`;
     }
   }
+
+

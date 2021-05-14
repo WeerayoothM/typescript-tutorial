@@ -15,8 +15,7 @@ const me : IsPerson = {
   spend(amount:number) : number {
     console.log('I spent',amount);
     return amount;
-    
-  }
+  },
 };
 
 const greetPerson = (person:IsPerson) => {
@@ -28,6 +27,20 @@ const greetPerson = (person:IsPerson) => {
 greetPerson(me)
 
 import { Invoice } from "./classes/Invoice.js";
+import { Payment } from "./classes/Payment.js";
+import { HasFormatter } from './Interfaces/HasFormatter';
+
+let docOne : HasFormatter;
+let docTwo : HasFormatter;
+
+docOne = new Invoice("Ohm", "web work", 250);
+docTwo = new Payment("Jaja", "plumbing work", 200);
+let docs : HasFormatter[] = [];
+docs.push(docOne)
+docs.push(docTwo)
+console.log(docs);
+
+
 
 const invoiceOne = new Invoice("mario", "work on the mario website", 250);
 const invoiceTwo = new Invoice("logi", "work on the logi website", 300);
@@ -50,5 +63,12 @@ const amount = document.querySelector("#amount") as HTMLInputElement;
 
 form.addEventListener("submit", (e: Event) => {
   e.preventDefault();
-  console.log(type.value, tofrom.value, details.value, amount.valueAsNumber);
+  let doc : HasFormatter;
+  if (type.value === 'invoice'){
+    doc = new Invoice(tofrom.value,details.value,amount.valueAsNumber);
+  }else {
+    doc = new Payment(tofrom.value,details.value,amount.valueAsNumber);
+  }
+
+  console.log(doc);
 });
