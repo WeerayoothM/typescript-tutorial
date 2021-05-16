@@ -1,46 +1,42 @@
 interface IsPerson {
-  name:string;
-  age : number;
-  speak(a:string):void;
-  spend(a:number):number;
+  name: string;
+  age: number;
+  speak(a: string): void;
+  spend(a: number): number;
 }
 
-const me : IsPerson = {
-  name:'Jaja',
-  age:23,
-  speak(text:string) : void {
+const me: IsPerson = {
+  name: "Jaja",
+  age: 23,
+  speak(text: string): void {
     console.log(text);
-    
   },
-  spend(amount:number) : number {
-    console.log('I spent',amount);
+  spend(amount: number): number {
+    console.log("I spent", amount);
     return amount;
   },
 };
 
-const greetPerson = (person:IsPerson) => {
-  console.log('Hello ', person.name);
-  
-}
+const greetPerson = (person: IsPerson) => {
+  console.log("Hello ", person.name);
+};
 
-
-greetPerson(me)
+greetPerson(me);
 
 import { Invoice } from "./classes/Invoice.js";
+import { ListTemplate } from "./classes/ListTemplate.js";
 import { Payment } from "./classes/Payment.js";
-import { HasFormatter } from './Interfaces/HasFormatter';
+import { HasFormatter } from "./Interfaces/HasFormatter.js";
 
-let docOne : HasFormatter;
-let docTwo : HasFormatter;
+let docOne: HasFormatter;
+let docTwo: HasFormatter;
 
 docOne = new Invoice("Ohm", "web work", 250);
 docTwo = new Payment("Jaja", "plumbing work", 200);
-let docs : HasFormatter[] = [];
-docs.push(docOne)
-docs.push(docTwo)
+let docs: HasFormatter[] = [];
+docs.push(docOne);
+docs.push(docTwo);
 console.log(docs);
-
-
 
 const invoiceOne = new Invoice("mario", "work on the mario website", 250);
 const invoiceTwo = new Invoice("logi", "work on the logi website", 300);
@@ -61,14 +57,17 @@ const tofrom = document.querySelector("#tofrom") as HTMLInputElement;
 const details = document.querySelector("#details") as HTMLInputElement;
 const amount = document.querySelector("#amount") as HTMLInputElement;
 
+//list template instance
+const ul = document.querySelector("ul")!;
+const list = new ListTemplate(ul);
+
 form.addEventListener("submit", (e: Event) => {
   e.preventDefault();
-  let doc : HasFormatter;
-  if (type.value === 'invoice'){
-    doc = new Invoice(tofrom.value,details.value,amount.valueAsNumber);
-  }else {
-    doc = new Payment(tofrom.value,details.value,amount.valueAsNumber);
+  let doc: HasFormatter;
+  if (type.value === "invoice") {
+    doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+  } else {
+    doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
   }
-
-  console.log(doc);
+  list.render(doc, type.value, "end");
 });
