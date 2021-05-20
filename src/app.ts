@@ -1,3 +1,5 @@
+type StringOrNum = string | number;
+
 interface IsPerson {
   name: string;
   age: number;
