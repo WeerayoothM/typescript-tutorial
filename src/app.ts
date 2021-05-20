@@ -103,3 +103,30 @@ const documentFour: Resource<string[]> = {
 };
 
 console.log(documentThree, documentFour);
+
+// ENUMS
+enum ResourceType {
+  BOOK,
+  AUTHOR,
+  FILM,
+  DIRECTOR,
+  PERSON,
+}
+interface ResourceTwo<T> {
+  uid: number;
+  resourceType: ResourceType;
+  data: T;
+}
+
+const documentFive: ResourceTwo<object> = {
+  uid: 1,
+  resourceType: ResourceType.AUTHOR,
+  data: { title: "name of the wind" },
+};
+const documentSix: ResourceTwo<object> = {
+  uid: 1,
+  resourceType: ResourceType.PERSON,
+  data: { name: "Weerayooth" },
+};
+
+console.log(documentFive, documentSix);

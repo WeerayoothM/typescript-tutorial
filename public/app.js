@@ -72,3 +72,23 @@ const documentFour = {
     data: ["Ohm", "Jaja"],
 };
 console.log(documentThree, documentFour);
+// ENUMS
+var ResourceType;
+(function (ResourceType) {
+    ResourceType[ResourceType["BOOK"] = 0] = "BOOK";
+    ResourceType[ResourceType["AUTHOR"] = 1] = "AUTHOR";
+    ResourceType[ResourceType["FILM"] = 2] = "FILM";
+    ResourceType[ResourceType["DIRECTOR"] = 3] = "DIRECTOR";
+    ResourceType[ResourceType["PERSON"] = 4] = "PERSON";
+})(ResourceType || (ResourceType = {}));
+const documentFive = {
+    uid: 1,
+    resourceType: ResourceType.AUTHOR,
+    data: { title: "name of the wind" },
+};
+const documentSix = {
+    uid: 1,
+    resourceType: ResourceType.PERSON,
+    data: { name: "Weerayooth" },
+};
+console.log(documentFive, documentSix);
