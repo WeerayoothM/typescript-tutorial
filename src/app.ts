@@ -71,3 +71,35 @@ form.addEventListener("submit", (e: Event) => {
   }
   list.render(doc, type.value, "end");
 });
+
+// GENERICS
+// Property 'name' does not exist on type '{ uid: number; }'.
+// this function not know the object propertie
+const addUID = <T extends object>(obj: T) => {
+  let uid = Math.floor(Math.random() * 100);
+  return { ...obj, uid };
+};
+
+let documentOne = addUID({ name: "yoshi", age: 40 });
+
+console.log(documentOne.name);
+
+//with interfaces
+interface Resource<T> {
+  uid: number;
+  resourceName: string;
+  data: T;
+}
+
+const documentThree: Resource<object> = {
+  uid: 1,
+  resourceName: "person",
+  data: { name: "Jaja" },
+};
+const documentFour: Resource<string[]> = {
+  uid: 1,
+  resourceName: "person",
+  data: ["Ohm", "Jaja"],
+};
+
+console.log(documentThree, documentFour);

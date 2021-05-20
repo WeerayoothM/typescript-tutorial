@@ -52,3 +52,23 @@ form.addEventListener("submit", (e) => {
     }
     list.render(doc, type.value, "end");
 });
+// GENERICS
+// Property 'name' does not exist on type '{ uid: number; }'.
+// this function not know the object propertie
+const addUID = (obj) => {
+    let uid = Math.floor(Math.random() * 100);
+    return Object.assign(Object.assign({}, obj), { uid });
+};
+let documentOne = addUID({ name: "yoshi", age: 40 });
+console.log(documentOne.name);
+const documentThree = {
+    uid: 1,
+    resourceName: "person",
+    data: { name: "Jaja" },
+};
+const documentFour = {
+    uid: 1,
+    resourceName: "person",
+    data: ["Ohm", "Jaja"],
+};
+console.log(documentThree, documentFour);
